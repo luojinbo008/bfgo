@@ -37,6 +37,15 @@ func Init(configFile string, args ...interface{}) error {
 			return errors.New("run error with type：" + runMode)
 		}
 	}
+
+	// 初始化组件
+	if len(viper.GetStringMap("components.mysql")) != 0 {
+		app.Register("mysql", mysql.Creator)
+	}
+	if len(viper.GetStringMap("components.redis")) != 0 {
+		app.Register("redis", redis.Creator)
+	}
+
 	return app.ConfigureAll(viper.GetStringMap("components"))
 }
 
