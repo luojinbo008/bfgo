@@ -5,7 +5,6 @@ import (
 	"github.com/jinzhu/gorm"
 	"math/rand"
 	"time"
-
 	"github.com/mitchellh/mapstructure"
 )
 

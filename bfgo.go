@@ -15,11 +15,11 @@ func Init(configFile string, args ...interface{}) error {
 	viper.AutomaticEnv()
 
 	err := viper.ReadInConfig()
-	if err != nil{
+	if err != nil {
 		errStr := "Config parse error," + err.Error()
 		log.Fatal(errStr)
 		return err
-	}else {
+	} else {
 		log.Println("Using config file:", viper.ConfigFileUsed())
 	}
 

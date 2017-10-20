@@ -80,12 +80,6 @@ func RunServer(transportFactory thrift.TTransportFactory, protocolFactory thrift
 		return err
 	}
 
-	//log.Debug("%t", transport)
-
-	//注册相应的处理接口，处理客户端请求
-	//handler.Init()
-
-	//processor := MedPush.NewMedPushProcessor(handler)
 	Server = thrift.NewTSimpleServer4(processor.(thrift.TProcessor), transport, transportFactory, protocolFactory)
 
 	log.Println("Starting the simple server... on ", addr)
