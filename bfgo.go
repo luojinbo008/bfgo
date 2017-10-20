@@ -1,9 +1,12 @@
 package bfgo
 import (
+	"errors"
 	"log"
 	"github.com/spf13/viper"
 	"github.com/luojinbo008/bfgo/app"
 	"github.com/luojinbo008/bfgo/thrift"
+	"github.com/luojinbo008/bfgo/database/mysql"
+	"github.com/luojinbo008/bfgo/database/redis"
 )
 
 func Init(configFile string, args ...interface{}) error {
@@ -19,9 +22,6 @@ func Init(configFile string, args ...interface{}) error {
 	}else {
 		log.Println("Using config file:", viper.ConfigFileUsed())
 	}
-
-	//初始化日志
-	pLog.Init(viper.GetString("server.log"))
 
 	//初始化服务类型
 	runMode := viper.GetString("server.type")
