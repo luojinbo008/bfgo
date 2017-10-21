@@ -23,7 +23,7 @@ func Init(configFile string, args ...interface{}) error {
 		log.Println("Using config file:", viper.ConfigFileUsed())
 	}
 
-	//初始化服务类型
+	// 初始化服务类型
 	runMode := viper.GetString("server.type")
 	if len(runMode) != 0 {
 		switch runMode {

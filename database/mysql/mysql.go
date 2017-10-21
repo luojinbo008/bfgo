@@ -32,7 +32,7 @@ func NewDB(cfg *DBConfig) (*DB, error) {
 	db.Write.LogMode(true)
 	db.Write.DB().SetMaxIdleConns(10)
 	db.Write.DB().SetMaxOpenConns(100)
-	for dsn := range cfg.Reads {
+	for _, dsn := range cfg.Reads {
 		rdb, err := gorm.Open(cfg.Driver, dsn)
 		if err != nil {
 			return nil, err

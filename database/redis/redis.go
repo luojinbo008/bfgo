@@ -2,6 +2,7 @@ package redis
 
 import (
 	"time"
+
 	"github.com/go-redis/redis"
 	"github.com/mitchellh/mapstructure"
 )

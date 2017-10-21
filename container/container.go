@@ -129,7 +129,6 @@ func (this *Container) GetContainer(name string) (*Container, error) {
 	return nil, errors.New(name + " not a Container instance")
 }
 
-
 // 当传进来的type为container时，进入到这个Creator
 func (this *Container) Creator(cfg interface{}) (interface{}, error) {
 	cfgMap := make(map[string]interface{})
